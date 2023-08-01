@@ -1,112 +1,230 @@
 <script setup>
 import { ref, reactive } from 'vue'
 
-const persons = reactive([
-  {
-    name: 'John Doe',
-    age: 30,
-    email: 'john.doe@example.com',
-    phone: '555-1234',
-    address: '123 Main Street, Cityville'
-  },
-  {
-    name: 'Jane Smith',
-    age: 25,
-    email: 'jane.smith@example.com',
-    phone: '555-5678',
-    address: '456 Park Avenue, Townsville'
-  },
-  {
-    name: 'Michael Johnson',
-    age: 28,
-    email: 'michael.johnson@example.com',
-    phone: '555-9876',
-    address: '789 Elm Road, Villagetown'
-  },
-  {
-    name: 'Emily Williams',
-    age: 22,
-    email: 'emily.williams@example.com',
-    phone: '555-4321',
-    address: '321 Oak Lane, Countryside'
-  },
-  {
-    name: 'Daniel Brown',
-    age: 35,
-    email: 'daniel.brown@example.com',
-    phone: '555-8765',
-    address: '567 Pine Street, Hamletville'
-  },
-  {
-    name: 'Sophia Davis',
-    age: 29,
-    email: 'sophia.davis@example.com',
-    phone: '555-2345',
-    address: '432 Birch Avenue, Riverside'
-  },
-  {
-    name: 'William Miller',
-    age: 31,
-    email: 'william.miller@example.com',
-    phone: '555-7654',
-    address: '678 Maple Court, Suburbia'
-  },
-  {
-    name: 'Olivia Wilson',
-    age: 27,
-    email: 'olivia.wilson@example.com',
-    phone: '555-3456',
-    address: '876 Cherry Lane, Urbanville'
-  },
-  {
-    name: 'James Anderson',
-    age: 33,
-    email: 'james.anderson@example.com',
-    phone: '555-6543',
-    address: '345 Walnut Drive, Metropolis'
-  },
-  {
-    name: 'Emma Taylor',
-    age: 26,
-    email: 'emma.taylor@example.com',
-    phone: '555-8765',
-    address: '543 Cedar Street, Citytown'
-  }
+const countries = reactive([
+  { name: 'Afghanistan', code: 'AF' },
+  { name: 'Albania', code: 'AL' },
+  { name: 'Algeria', code: 'DZ' },
+  { name: 'Andorra', code: 'AD' },
+  { name: 'Angola', code: 'AO' },
+  { name: 'Antigua and Barbuda', code: 'AG' },
+  { name: 'Argentina', code: 'AR' },
+  { name: 'Armenia', code: 'AM' },
+  { name: 'Australia', code: 'AU' },
+  { name: 'Austria', code: 'AT' },
+  { name: 'Azerbaijan', code: 'AZ' },
+  { name: 'Bahamas', code: 'BS' },
+  { name: 'Bahrain', code: 'BH' },
+  { name: 'Bangladesh', code: 'BD' },
+  { name: 'Barbados', code: 'BB' },
+  { name: 'Belarus', code: 'BY' },
+  { name: 'Belgium', code: 'BE' },
+  { name: 'Belize', code: 'BZ' },
+  { name: 'Benin', code: 'BJ' },
+  { name: 'Bhutan', code: 'BT' },
+  { name: 'Bolivia', code: 'BO' },
+  { name: 'Bosnia and Herzegovina', code: 'BA' },
+  { name: 'Botswana', code: 'BW' },
+  { name: 'Brazil', code: 'BR' },
+  { name: 'Brunei', code: 'BN' },
+  { name: 'Bulgaria', code: 'BG' },
+  { name: 'Burkina Faso', code: 'BF' },
+  { name: 'Burundi', code: 'BI' },
+  { name: 'Cabo Verde', code: 'CV' },
+  { name: 'Cambodia', code: 'KH' },
+  { name: 'Cameroon', code: 'CM' },
+  { name: 'Canada', code: 'CA' },
+  { name: 'Central African Republic', code: 'CF' },
+  { name: 'Chad', code: 'TD' },
+  { name: 'Chile', code: 'CL' },
+  { name: 'China', code: 'CN' },
+  { name: 'Colombia', code: 'CO' },
+  { name: 'Comoros', code: 'KM' },
+  { name: 'Congo (Brazzaville)', code: 'CG' },
+  { name: 'Congo (Kinshasa)', code: 'CD' },
+  { name: 'Costa Rica', code: 'CR' },
+  { name: 'Croatia', code: 'HR' },
+  { name: 'Cuba', code: 'CU' },
+  { name: 'Cyprus', code: 'CY' },
+  { name: 'Czech Republic', code: 'CZ' },
+  { name: 'Denmark', code: 'DK' },
+  { name: 'Djibouti', code: 'DJ' },
+  { name: 'Dominica', code: 'DM' },
+  { name: 'Dominican Republic', code: 'DO' },
+  { name: 'Ecuador', code: 'EC' },
+  { name: 'Egypt', code: 'EG' },
+  { name: 'El Salvador', code: 'SV' },
+  { name: 'Equatorial Guinea', code: 'GQ' },
+  { name: 'Eritrea', code: 'ER' },
+  { name: 'Estonia', code: 'EE' },
+  { name: 'Eswatini', code: 'SZ' },
+  { name: 'Ethiopia', code: 'ET' },
+  { name: 'Fiji', code: 'FJ' },
+  { name: 'Finland', code: 'FI' },
+  { name: 'France', code: 'FR' },
+  { name: 'Gabon', code: 'GA' },
+  { name: 'Gambia', code: 'GM' },
+  { name: 'Georgia', code: 'GE' },
+  { name: 'Germany', code: 'DE' },
+  { name: 'Ghana', code: 'GH' },
+  { name: 'Greece', code: 'GR' },
+  { name: 'Grenada', code: 'GD' },
+  { name: 'Guatemala', code: 'GT' },
+  { name: 'Guinea', code: 'GN' },
+  { name: 'Guinea-Bissau', code: 'GW' },
+  { name: 'Guyana', code: 'GY' },
+  { name: 'Haiti', code: 'HT' },
+  { name: 'Holy See', code: 'VA' },
+  { name: 'Honduras', code: 'HN' },
+  { name: 'Hungary', code: 'HU' },
+  { name: 'Iceland', code: 'IS' },
+  { name: 'India', code: 'IN' },
+  { name: 'Indonesia', code: 'ID' },
+  { name: 'Iran', code: 'IR' },
+  { name: 'Iraq', code: 'IQ' },
+  { name: 'Ireland', code: 'IE' },
+  { name: 'Israel', code: 'IL' },
+  { name: 'Italy', code: 'IT' },
+  { name: 'Jamaica', code: 'JM' },
+  { name: 'Japan', code: 'JP' },
+  { name: 'Jordan', code: 'JO' },
+  { name: 'Kazakhstan', code: 'KZ' },
+  { name: 'Kenya', code: 'KE' },
+  { name: 'Kiribati', code: 'KI' },
+  { name: 'Korea, North', code: 'KP' },
+  { name: 'Korea, South', code: 'KR' },
+  { name: 'Kosovo', code: 'XK' },
+  { name: 'Kuwait', code: 'KW' },
+  { name: 'Kyrgyzstan', code: 'KG' },
+  { name: 'Laos', code: 'LA' },
+  { name: 'Latvia', code: 'LV' },
+  { name: 'Lebanon', code: 'LB' },
+  { name: 'Lesotho', code: 'LS' },
+  { name: 'Liberia', code: 'LR' },
+  { name: 'Libya', code: 'LY' },
+  { name: 'Liechtenstein', code: 'LI' },
+  { name: 'Lithuania', code: 'LT' },
+  { name: 'Luxembourg', code: 'LU' },
+  { name: 'Madagascar', code: 'MG' },
+  { name: 'Malawi', code: 'MW' },
+  { name: 'Malaysia', code: 'MY' },
+  { name: 'Maldives', code: 'MV' },
+  { name: 'Mali', code: 'ML' },
+  { name: 'Malta', code: 'MT' },
+  { name: 'Marshall Islands', code: 'MH' },
+  { name: 'Mauritania', code: 'MR' },
+  { name: 'Mauritius', code: 'MU' },
+  { name: 'Mexico', code: 'MX' },
+  { name: 'Micronesia', code: 'FM' },
+  { name: 'Moldova', code: 'MD' },
+  { name: 'Monaco', code: 'MC' },
+  { name: 'Mongolia', code: 'MN' },
+  { name: 'Montenegro', code: 'ME' },
+  { name: 'Morocco', code: 'MA' },
+  { name: 'Mozambique', code: 'MZ' },
+  { name: 'Myanmar', code: 'MM' },
+  { name: 'Namibia', code: 'NA' },
+  { name: 'Nauru', code: 'NR' },
+  { name: 'Nepal', code: 'NP' },
+  { name: 'Netherlands', code: 'NL' },
+  { name: 'New Zealand', code: 'NZ' },
+  { name: 'Nicaragua', code: 'NI' },
+  { name: 'Niger', code: 'NE' },
+  { name: 'Nigeria', code: 'NG' },
+  { name: 'North Macedonia', code: 'MK' },
+  { name: 'Norway', code: 'NO' },
+  { name: 'Oman', code: 'OM' },
+  { name: 'Pakistan', code: 'PK' },
+  { name: 'Palau', code: 'PW' },
+  { name: 'Panama', code: 'PA' },
+  { name: 'Papua New Guinea', code: 'PG' },
+  { name: 'Paraguay', code: 'PY' },
+  { name: 'Peru', code: 'PE' },
+  { name: 'Philippines', code: 'PH' },
+  { name: 'Poland', code: 'PL' },
+  { name: 'Portugal', code: 'PT' },
+  { name: 'Qatar', code: 'QA' },
+  { name: 'Romania', code: 'RO' },
+  { name: 'Russia', code: 'RU' },
+  { name: 'Rwanda', code: 'RW' },
+  { name: 'Saint Kitts and Nevis', code: 'KN' },
+  { name: 'Saint Lucia', code: 'LC' },
+  { name: 'Saint Vincent and the Grenadines', code: 'VC' },
+  { name: 'Samoa', code: 'WS' },
+  { name: 'San Marino', code: 'SM' },
+  { name: 'Sao Tome and Principe', code: 'ST' },
+  { name: 'Saudi Arabia', code: 'SA' },
+  { name: 'Senegal', code: 'SN' },
+  { name: 'Serbia', code: 'RS' },
+  { name: 'Seychelles', code: 'SC' },
+  { name: 'Sierra Leone', code: 'SL' },
+  { name: 'Singapore', code: 'SG' },
+  { name: 'Slovakia', code: 'SK' },
+  { name: 'Slovenia', code: 'SI' },
+  { name: 'Solomon Islands', code: 'SB' },
+  { name: 'Somalia', code: 'SO' },
+  { name: 'South Africa', code: 'ZA' },
+  { name: 'South Sudan', code: 'SS' },
+  { name: 'Spain', code: 'ES' },
+  { name: 'Sri Lanka', code: 'LK' },
+  { name: 'Sudan', code: 'SD' },
+  { name: 'Suriname', code: 'SR' },
+  { name: 'Sweden', code: 'SE' },
+  { name: 'Switzerland', code: 'CH' },
+  { name: 'Syria', code: 'SY' },
+  { name: 'Taiwan', code: 'TW' },
+  { name: 'Tajikistan', code: 'TJ' },
+  { name: 'Tanzania', code: 'TZ' },
+  { name: 'Thailand', code: 'TH' },
+  { name: 'Timor-Leste', code: 'TL' },
+  { name: 'Togo', code: 'TG' },
+  { name: 'Tonga', code: 'TO' },
+  { name: 'Trinidad and Tobago', code: 'TT' },
+  { name: 'Tunisia', code: 'TN' },
+  { name: 'Turkey', code: 'TR' },
+  { name: 'Turkmenistan', code: 'TM' },
+  { name: 'Tuvalu', code: 'TV' },
+  { name: 'Uganda', code: 'UG' },
+  { name: 'Ukraine', code: 'UA' },
+  { name: 'United Arab Emirates', code: 'AE' },
+  { name: 'United Kingdom', code: 'GB' },
+  { name: 'United States', code: 'US' },
+  { name: 'Uruguay', code: 'UY' },
+  { name: 'Uzbekistan', code: 'UZ' },
+  { name: 'Vanuatu', code: 'VU' },
+  { name: 'Venezuela', code: 'VE' },
+  { name: 'Vietnam', code: 'VN' },
+  { name: 'Yemen', code: 'YE' },
+  { name: 'Zambia', code: 'ZM' },
+  { name: 'Zimbabwe', code: 'ZW' }
 ]);
 
-const activeIndex = ref(0);
+const searchText = ref('');
 
-
+function getFilteredCountries() {
+  return countries.filter((country) => {
+    return country.name.toLowerCase().startsWith(searchText.value.toLowerCase())
+  })
+}
 
 </script>
 
 <template>
   <div class="container mx-auto w-full block min-h-screen">
-    <h2 class="text-4xl capitalize">Live Data Editing - {{ activeIndex }}</h2>
-    <p class="mt-3">{{ persons }}</p>
+    <h2 class="text-4xl capitalize">Live Search Project</h2>
+    <p class="mt-3">{{ searchText }}</p>
     <!-- Input Box -->
     <div class=" mt-10 space-y-4">
-      <div class="flex items-start mt-10 space-x-3">
-        <!-- Select Person -->
-        <div class=" space-y-2 bg-gray-200 p-4 rounded-lg w-4/12">
-          <label class="text-xl mr-3" for="sp">Select Person:</label>
-          <select v-model="activeIndex" class="p-1 min-w-[150px] px-2 rounded-md focus:outline-none" id="sp">
-            <option v-for="(person, index) in persons" :key="index" :value="index">{{ person.name }}</option>
-          </select>
-        </div>
-        <!-- Select Person End-->
+      <!-- Input Box -->
+      <div class="flex items-center mt-10 bg-gray-200 p-4 rounded-lg space-x-2">
+        <label class="text-xl" for="color">Search Query:</label>
+        <input type="text" v-model="searchText" id="color" class="p-1 px-2 rounded-md focus:outline-none">
+      </div>
 
-        <!-- Person Data -->
-        <div class=" bg-gray-200 p-5 rounded-lg w-8/12">
-          <!-- Single Input Field -->
-          <div v-for="(value, key, index) in persons[activeIndex]" :key="key" class="mb-3 text-left">
-            <label class="text-lg block mb-1 capitalize" for="color">{{ key }}:</label>
-            <input type="text" v-model="persons[activeIndex][key]" id="color"
-              class="p-1 px-2 w-full rounded-md focus:outline-none">
-          </div>
-          <!-- Single Input Field End-->
-        </div>
-        <!-- Person Data End -->
+      <div class="bg-gray-100 w-full p-2 rounded-md">
+        <ul>
+          <li v-for="country in getFilteredCountries()" :key="country.code" class="text-lg">{{ country.name }}</li>
+        </ul>
       </div>
 
 
