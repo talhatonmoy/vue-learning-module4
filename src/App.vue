@@ -1,26 +1,28 @@
 <script setup>
 import { ref, reactive } from 'vue'
 
-const colorName = ref('None')
-
-function getStyle() {
-  return ({
-    backgroundColor: colorName.value
-  })
-}
+const person = reactive({
+  name: 'Jon Deo',
+  age: '25',
+  title: 'CEO',
+  company: 'Marvel Cenematic Universe'
+});
 
 </script>
 
 <template>
   <div class="container mx-auto w-full">
-    <h2 class="text-4xl capitalize">My fevorite color: {{ colorName }}</h2>
+    <h2 class="text-4xl capitalize mb-5">Person Detail</h2>
+    <p>{{ person }}</p>
     <!-- Input Box -->
-    <div class="flex items-center mt-10 bg-gray-200 p-4 rounded-lg space-x-2">
-      <label class="text-xl" for="color">Input color:</label>
-      <input type="text" v-model="colorName" id="color" class="p-1 px-2 rounded-md focus:outline-none">
+    <div class=" bg-gray-200 p-5 rounded-lg mt-5">
+      <div v-for="(value, key, index) in person" :key="index" class="mt-5 text-left">
+        <label class="text-lg block mb-1 capitalize" for="color">{{ key }}:</label>
+        <input type="text" v-model="person[key]" id="color" class="p-1 px-2 w-full rounded-md focus:outline-none">
+      </div>
     </div>
-    <!--Color Output Div -->
-    <div class=" w-36 h-36 mt-10 mx-auto rounded-lg ring-4 ring-gray-200" :style="getStyle()"></div>
+
+
   </div>
 </template>
 
