@@ -1,31 +1,35 @@
 <script setup>
 import { ref, reactive } from 'vue'
 
-const radioInput = ref(true)
+const colorsName = ref([])
+
+
 
 </script>
 
 <template>
   <div class="container mx-auto w-full">
-    <h2 class="text-4xl capitalize mb-5">Random Image Showing Based On Radio Input </h2>
-    <p class="capitalize">{{ radioInput }}</p>
+    <h2 class="text-4xl capitalize">My fevorite colors</h2>
+    <p class="mt-3">{{ colorsName }}</p>
     <!-- Input Box -->
-    <div class=" bg-gray-100 p-5 rounded-lg mt-5 min-h-screen">
-
-      <div class=" bg-white p-5 rounded-md ">
-          <label class="text-lg capitalize mb-1">Show image randomly: Radio Input</label>
-          <p>
-            <input type="radio" name="displayimg" :value="true" v-model="radioInput"> On <br>
-            <input type="radio" name="displayimg" :value="false" v-model="radioInput"> Off <br>
-          </p>
-        </div>
-
-      <div class="mt-5 text-left" v-show="radioInput == true">
-        <img :src="`https://source.unsplash.com/random?version=${Math.random()}`" class="w-6/12 mx-auto rounded-md">
+    <div class="flex items-center mt-10 bg-gray-200 p-4 rounded-lg space-x-4">
+      <div>
+        <label class="text-xl capitalize mr-2">red:</label>
+        <input type="checkbox" v-model="colorsName" value="red">
+      </div>
+      <div>
+        <label class="text-xl capitalize mr-2">green:</label>
+        <input type="checkbox" v-model="colorsName" value="green">
+      </div>
+      <div>
+        <label class="text-xl capitalize mr-2">yellow:</label>
+        <input type="checkbox" v-model="colorsName" value="yellow">
+      </div>
+      <div>
+        <label class="text-xl capitalize mr-2">blue:</label>
+        <input type="checkbox" v-model="colorsName" value="blue">
       </div>
     </div>
-
-
   </div>
 </template>
 
