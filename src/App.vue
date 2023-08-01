@@ -21,8 +21,6 @@ const person = reactive({
         <input type="text" v-model="person[key]" id="color" class="p-1 px-2 w-full rounded-md focus:outline-none">
       </div>
     </div>
-
-
   </div>
 </template>
 
