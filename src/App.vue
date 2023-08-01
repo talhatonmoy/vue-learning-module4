@@ -211,7 +211,7 @@ function getFilteredCountries() {
 
 <template>
   <div class="container mx-auto w-full block min-h-screen">
-    <h2 class="text-4xl capitalize">Live Search Project</h2>
+    <h2 class="text-4xl capitalize">Simple Live Search Project</h2>
     <p class="mt-3">{{ searchText }}</p>
     <!-- Input Box -->
     <div class=" mt-10 space-y-4">
